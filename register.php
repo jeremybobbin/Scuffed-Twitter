@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   include 'functions.php';
   $username = htmlspecialchars($_POST["username"]);
@@ -16,3 +17,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" name="username" id="username"/>
   </label>
 </form>
+
+<?php include 'footer.php' ?>

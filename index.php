@@ -1,7 +1,9 @@
-<?php?>
-
-<h1>Home</h1>
-<?php if($_COOKIE["username"]) { ?>
+<?php
+include 'header.php';
+?>
+<a href="index.php" style="font-size: 5em;">Home</a>
+<?php
+if(isset($_COOKIE["username"]) && $_COOKIE["username"]) { ?>
   <a href="logout.php">Log Out</a>
   <form action="index.php" method="post">
     <label for="status">
@@ -16,7 +18,12 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_COOKIE["username"]) {
     include 'functions.php';
-    postStatus($_COOKIE["username"], $_POST['status']);
+    $cookie = $_COOKIE["username"];
+    postStatus($cookie, $_POST['status']);
 }
 ?>
 <a href="users.php">Users</a>
+<a href="profile.php">Search a Guy.</a>
+<?php
+include 'footer.php';
+?>
